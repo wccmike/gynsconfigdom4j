@@ -1,0 +1,10 @@
+
+Bundle-ClassPath: .,
+ lib/PaperlessClient.jar,
+ lib/jsch-0.1.49.jar
+Export-Package: com.csii.mca.datamodel.per.loanmgmt,
+ com.csii.mca.service.per.loanmgmt
+Bundle-Activator: com.csii.pe.dynamic.core.CSIIActivator
+Bundle-ClassPath: .,
+ lib/PaperlessClient.jar,
+ lib/jsch-0.1.49.jar

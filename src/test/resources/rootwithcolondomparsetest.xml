@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spring:beans
+xmlns:spring="http://www.springframework.org/schema/beans"
+xmlns="http://www.csii.com.cn/schema/pe"
+xmlns:util="http://www.springframework.org/schema/util"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/util
+http://www.springframework.org/schema/util/spring-util.xsd
+http://www.csii.com.cn/schema/pe
+http://www.csii.com.cn/schema/pe/pe-1.0.xsd">
+
+<config namespace="q">
+
+	<bean id="generalAwareProcessor" class="com.csii.pe.config.support.GeneralAwareProcessor">
+		<!-- 校验器模式 -->
+		<map name="validators">
+			<ref name="ruleFilter">ruleFilterValidator</ref>
+  			<ref name="option">optionValidator</ref>
+			<ref name="ruleRequired">ruleRequiredValidator</ref>
+  			<ref name="pin">pinValidator</ref>
+  			<ref name="range">rangeValidator</ref>
+  			<ref name="ruleLength">ruleLengthValidator</ref>
+  			<ref name="length">lengthValidator</ref>
+  			<ref name="rulePattern">rulePatternValidator</ref>
+  			<ref name="pattern">patternValidator</ref>
+  			<ref name="type">typeValidator</ref>
+  			<ref name="acPermission">acPermissionValidator</ref>
+  			<ref name="ruleAcAC">ruleAcValidator</ref>
+		</map>
+		<!-- 注册系统级服务 -->
+		<map name="services">
+			<ref name="ibsTrsAgent">ibsTrsAgent</ref>
+			<ref name="idFactory">idFactory</ref>
+			<ref name="AccessJnlNoIdFactory">pAccessJnlNoIdFactory</ref>
+			<ref name="PAcSeqIdFactory">pAcSeqIdFactory</ref>
+			<ref name="PCifSeqIdFactory">pCifSeqIdFactory</ref>
+			<ref name="PUserSeqIdFactory">pUserSeqIdFactory</ref>
+			<ref name="PPayeeInfoIdFactory">pPayeeInfoIdFactory</ref>
+		</map>
+	</bean>
+	
+	<!-- all id service -->
+	<idFactory id="idFactory" class="com.csii.pe.service.id.RawSequenceIdFactory">
+		<ref name="dataSource">ibsdbDataSource</ref>
+		<param name="sql">${idFactory.idFactory}</param>
+	</idFactory>
+	<idFactory id="pAccessJnlNoIdFactory" class="com.csii.pe.service.id.RawSequenceIdFactory">
+		<ref name="dataSource">ibsdbDataSource</ref>
+		<param name="sql">${idFactory.pAccessJnlNoIdSeqFactory}</param>
+	</idFactory>
+	<idFactory id="pAcSeqIdFactory" class="com.csii.pe.service.id.RawSequenceIdFactory">
+		<ref name="dataSource">ibsdbDataSource</ref>
+		<param name="sql">${idFactory.pAcSeqIdFactory}</param>
+	</idFactory>
+	<idFactory id="pCifSeqIdFactory" class="com.csii.pe.service.id.RawSequenceIdFactory">
+		<ref name="dataSource">ibsdbDataSource</ref>
+		<param name="sql">${idFactory.pCifSeqIdFactory}</param>
+	</idFactory>
+	<idFactory id="pUserSeqIdFactory" class="com.csii.pe.service.id.RawSequenceIdFactory">
+		<ref name="dataSource">ibsdbDataSource</ref>
+		<param name="sql">${idFactory.pUserSeqIdFactory}</param>
+	</idFactory>
+	<idFactory id="pUserSeqIdFactory" class="com.csii.pe.service.id.RawSequenceIdFactory">
+		<ref name="dataSource">ibsdbDataSource</ref>
+		<param name="sql">${idFactory.pUserSeqIdFactory}</param>
+	</idFactory>
+	<idFactory id="pReceiptInitSingleIdFactory" class="com.csii.pe.service.id.RawSequenceIdFactory">
+		<ref name="dataSource">ibsdbDataSource</ref>
+		<param name="sql">${idFactory.pReceiptInitSingleIdFactory}</param>
+	</idFactory>
+	<idFactory id="pReceiptInitBatchIdFactory" class="com.csii.pe.service.id.RawSequenceIdFactory">
+		<ref name="dataSource">ibsdbDataSource</ref>
+		<param name="sql">${idFactory.pReceiptInitBatchIdFactory}</param>
+	</idFactory>
+	<idFactory id="pFundAlertIdFactory" class="com.csii.pe.service.id.RawSequenceIdFactory">
+		<ref name="dataSource">ibsdbDataSource</ref>
+		<param name="sql">${idFactory.pFundAlertIdFactory}</param>
+	</idFactory>
+	<idFactory id="pTallyTypeIdFactory" class="com.csii.pe.service.id.RawSequenceIdFactory">
+		<ref name="dataSource">ibsdbDataSource</ref>
+		<param name="sql">${idFactory.pTallyTypeIdFactory}</param>
+	</idFactory>
+	<idFactory id="pTallyRemarkIdFactory" class="com.csii.pe.service.id.RawSequenceIdFactory">
+		<ref name="dataSource">ibsdbDataSource</ref>
+		<param name="sql">${idFactory.pTallyRemarkIdFactory}</param>
+	</idFactory>
+	<idFactory id="pCashInOutIdFactory" class="com.csii.pe.service.id.RawSequenceIdFactory">
+		<ref name="dataSource">ibsdbDataSource</ref>
+		<param name="sql">${idFactory.pCashInOutIdFactory}</param>
+	</idFactory>
+	<idFactory id="pSmsTransferJnlIdFactory" class="com.csii.pe.service.id.RawSequenceIdFactory">
+		<ref name="dataSource">ibsdbDataSource</ref>
+		<param name="sql">${idFactory.pSmsTransferJnlIdFactory}</param>
+	</idFactory>
+	<idFactory id="pSmsTransferMsgIdFactory" class="com.csii.pe.service.id.RawSequenceIdFactory">
+		<ref name="dataSource">ibsdbDataSource</ref>
+		<param name="sql">${idFactory.pSmsTransferMsgIdFactory}</param>
+	</idFactory>
+	<idFactory id="pPayeeInfoIdFactory" class="com.csii.pe.service.id.RawSequenceIdFactory">
+		<ref name="dataSource">ibsdbDataSource</ref>
+		<param name="sql">${idFactory.pPayeeInfoIdFactory}</param>
+	</idFactory>
+	<idFactory id="pPayeeGroupIdFactory" class="com.csii.pe.service.id.RawSequenceIdFactory">
+		<ref name="dataSource">ibsdbDataSource</ref>
+		<param name="sql">${idFactory.pPayeeGroupIdFactory}</param>
+	</idFactory>
+	<idFactory id="pCommodityJnlFactory" class="com.csii.pe.service.id.RawSequenceIdFactory">
+		<ref name="dataSource">ibsdbDataSource</ref>
+		<param name="sql">${idFactory.pCommodityJnlFactory}</param>
+	</idFactory>
+	<idFactory id="pUserNoteSeqIdFactory" class="com.csii.pe.service.id.RawSequenceIdFactory">
+		<ref name="dataSource">ibsdbDataSource</ref>
+		<param name="sql">${idFactory.pUserNoteSeqIdFactory}</param>
+	</idFactory>
+	<idFactory id="pQJnlNoIdSeqFactory" class="com.csii.pe.service.id.RawSequenceIdFactory">
+	  <ref name="dataSource">ibsdbDataSource</ref>
+		<param name="sql" >${idFactory.pQJnlNoIdSeqFactory}</param>
+	</idFactory>	
+	
+	<idFactory id="pNFCJnlNoIdSeqFactory" class="com.csii.pe.service.id.RawSequenceIdFactory">
+	  <ref name="dataSource">ibsdbDataSource</ref>
+		<param name="sql" >${idFactory.pQJnlNoIdSeqFactory}</param>
+	</idFactory>
+	
+	<idFactory id="pAccountMsgSeqFactory" class="com.csii.pe.service.id.RawSequenceIdFactory">
+	  <ref name="dataSource">ibsdbDataSource</ref>
+		<param name="sql" >${idFactory.PAccountMsgSeqFactory}</param>
+	</idFactory>
+	
+	<idFactory id="pCreditcardMsgSeqFactory" class="com.csii.pe.service.id.RawSequenceIdFactory">
+	  <ref name="dataSource">ibsdbDataSource</ref>
+		<param name="sql" >${idFactory.pCreditcardMsgSeqFactory}</param>
+	</idFactory>
+	
+	<idFactory id="pCreditBillSeqFactory" class="com.csii.pe.service.id.RawSequenceIdFactory">
+	  <ref name="dataSource">ibsdbDataSource</ref>
+		<param name="sql" >${idFactory.pCreditBillSeqFactory}</param>
+	</idFactory>
+	
+	<idFactory id="createEntDataPreImgBtchNoIdFactory" class="com.csii.pe.service.id.RawSequenceIdFactory">
+	  <ref name="dataSource">.ibsdbDataSource</ref>
+		<param name="sql" >${idFactory.EntDataPreImgBtchNoSeq}</param>
+	</idFactory>
+	
+	<idFactory id="onlineUsernameFactory" class="com.csii.pe.service.id.RawSequenceIdFactory">
+		<ref name="dataSource">ibsdbDataSource</ref>
+		<param name="sql">${idFactory.onlineUsernameFactory}</param>
+	</idFactory>
+	
+	<bean id="rolePool" class="com.csii.pe.dynamic.ibs.role.DynamicTrsGroupRole" />
+	
+</config>
+
+</spring:beans>

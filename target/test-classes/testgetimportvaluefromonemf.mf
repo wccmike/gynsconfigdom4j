@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: com.csii.mca.service.per.acmgmt.impl
+Bundle-SymbolicName: com.csii.mca.service.per.acmgmt.impl
+Bundle-Version: 6.1.0.qualifier
+Bundle-Vendor: CSII
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Spring-Context: META-INF/config/*.xml
+CSII-AutoStart: true
+CSII-StartLevel: 8
+Import-Package: com.csii.ecif.basicservice,
+ com.csii.ecif.basicservice.account,
+ 
+ javax.sql,
+ org.apache.commons.logging;version="1.1.1"
+Require-Bundle: pedynamic;bundle-version="6.0.0",
+ com.csii.mcs.basicservice,
+ com.csii.ecif.datamodel,
+ com.csii.mcs.core,
+ com.csii.router.corebanking;bundle-version="6.1.0"
+Export-Package: com.csii.mca.datamodel.per.acmgmt,
+ com.csii.mca.service.per.acmgmt

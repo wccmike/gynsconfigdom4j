@@ -1,0 +1,133 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>1</groupId>
+	<artifactId>gynsconfigdom4j</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+					<encoding>utf-8</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<configuration>
+					<encoding>utf-8</encoding>
+				</configuration>
+			</plugin>
+			
+      <!-- <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <configuration>
+          添加java指纹配置
+          <archive>
+            <manifest>
+              项目启动类
+              <mainClass>gynsconfigdom4j.ConfigMain</mainClass>
+              依赖的jar的目录前缀
+              <classpathPrefix>../lib</classpathPrefix>
+              <addClasspath>true</addClasspath>
+            </manifest>
+            <manifestEntries>
+              <Implementation-build>${BUILD_NUMBER}</Implementation-build>
+              <Class-Path>../</Class-Path>
+            </manifestEntries>
+          </archive>
+          项目启动jar包排除目录
+          <excludes>
+            <exclude>bin/**</exclude>
+            <exclude>META-INF/**</exclude>
+			<exclude>config/**</exclude>
+            <exclude>logs/**</exclude>
+            <exclude>*.properties</exclude>
+            <exclude>*.xml</exclude>
+            <exclude>*.yml</exclude>
+          </excludes>
+        </configuration>
+      </plugin>
+
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>copy-dependencies</id>
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>copy-dependencies</goal>
+            </goals>
+            <configuration>
+              3rds独立发布，支持增量发布
+              <outputDirectory>${project.build.directory}/lib</outputDirectory>
+              <overWriteReleases>false</overWriteReleases>
+              <overWriteSnapshots>false</overWriteSnapshots>
+              <overWriteIfNewer>true</overWriteIfNewer>
+              <includeScope>runtime</includeScope>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin> -->
+			
+		</plugins>
+	</build>
+	<dependencies>
+	<!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-commons -->
+<dependency>
+    <groupId>org.springframework.data</groupId>
+    <artifactId>spring-data-commons</artifactId>
+    <version>2.1.9.RELEASE</version>
+</dependency>
+
+		<!-- https://mvnrepository.com/artifact/commons-beanutils/commons-beanutils -->
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+			<version>1.9.3</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.oracle/ojdbc6 -->
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc6</artifactId>
+			<version>11.2.0.3</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/dom4j/dom4j -->
+		<dependency>
+			<groupId>dom4j</groupId>
+			<artifactId>dom4j</artifactId>
+			<version>1.6.1</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/junit/junit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.6</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.9.8</version>
+			<scope>provided</scope>
+		</dependency>
+		
+	</dependencies>
+</project>

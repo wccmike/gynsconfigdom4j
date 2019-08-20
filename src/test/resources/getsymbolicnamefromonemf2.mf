@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: com.csii.mcs.ibs.creditcard
+Bundle-SymbolicName: com.csii.mcs.newibs.creditcard
+
+
+
+
